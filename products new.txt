@@ -1,0 +1,169 @@
+<?php
+
+session_start();
+if (isset($_POST["add_to_cart"])) {
+    $product_id = $_POST["product_id"];
+    $product_quantity = $_POST["product_quantity"];
+
+    if (!isset($_SESSION["cart"])) {
+        $_SESSION["cart"] = [];
+    }
+
+    $_SESSION["cart"][$product_id] = $product_quantity;
+    header("location:cart.php");
+}
+
+?> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moo Dairy Shop</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <h1>Welcome To Moo Dairy Shop</h1>
+        </div>
+    </header>
+
+    <!-- Navigation Section -->
+    <nav class="nav">
+        <ul>
+            <li><a href="index.html" >Home</a></li>
+            <li><a href="index.html">About</a></li>
+            <li><a href="products.php"class="active">Products</a></li>
+            <li><a href="cart.php">Cart</a></li>
+            <li><a href="logout.php">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content Section -->
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="home">
+            <h2>Our Products</h2>
+            <ul>
+                <li>
+                    <h3>Mother Dairy Toned Milk</h3>
+                    <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=900/app/assets/products/sliding_images/jpeg/e3f63e12-631f-4193-9160-ea4ddcbd6c5c.jpg?ts=1711189562" alt="Product 1">
+                    <p>High Quality toned milk</p>
+                    <p><span>$23 per liter</span></p>
+                    <form method="post" action="cart.php">
+                        <input type="hidden" name="product_id" value="1">
+                        <label for="product1_quantity">Quantity:</label>
+                        <select id="product1_quantity" name="product_quantity">
+                            <option value="250ml">250ml</option>
+                            <option value="500ml">500ml</option>
+                            <option value="1 liter">1 liter</option>
+                        </select>
+                        <button type="submit" name="add_to_cart">Add to Cart</button>
+                    </form>
+                </li>
+                <li>
+                    <h3>Mother Dairy Butter Pouch</h3>
+                    <img src="https://m.media-amazon.com/images/I/61at+1JKLhL.jpg" alt="Product 2">
+                    <p>Unsalted Butter</p>
+                    <p><span>$20 per 500 grams</span></p>
+                    <form method="post" action="cart.php">
+                        <input type="hidden" name="product_id" value="2">
+                        <label for="product2_quantity">Quantity:</label>
+                        <select id="product2_quantity" name="product_quantity">
+                            <option value="50g">50g</option>
+                            <option value="100g">100g</option>
+                            <option value="150g">150g</option>
+                        </select>
+                        <button type="submit" name="add_to_cart">Add to Cart</button>
+                    </form>
+                </li>
+                <li>
+                    <h3>Mother Dairy Cheese Slices</h3>
+                    <img src="https://m.media-amazon.com/images/I/61+AzywctoL.jpg" alt="Product 3">
+                    <p>Processed Cheese Spread</p>
+                    <p><span>$15 per pack (10 slices)</span></p>
+                    <form method="post" action="cart.php">
+                        <input type="hidden" name="product_id" value="3">
+                        <label for="product3_quantity">Quantity:</label>
+                        <select id="product3_quantity" name="product_quantity">
+                            <option value="50g">50g</option>
+                            <option value="100g">100g</option>
+                            <option value="150g">150g</option>
+                        </select>
+                        <button type="submit" name="add_to_cart">Add to Cart</button>
+                    </form>
+                </li>
+                <li>
+                    <h3>Mother Dairy Ghee</h3>
+                    <img src="https://m.media-amazon.com/images/I/91idhnLyJqL.jpg" alt="Product 4">
+                    <p>Pure Cow Ghee</p>
+                    <p><span>$15 per 200 grams</span></p>
+                    <form method="post" action="cart.php">
+                        <input type="hidden" name="product_id" value="4">
+                        <label for="product4_quantity">Quantity:</label>
+                        <select id="product4_quantity" name="product_quantity">
+                            <option value="50g">50g</option>
+                            <option value="100g">100g</option>
+                            <option value="150g">150g</option>
+                        </select>
+                        <button type="submit" name="add_to_cart">Add to Cart</button>
+                    </form>
+                </li>
+                <li>
+                    <h3>Mother Dairy Standardised Milk</h3>
+                    <img src="https://www.bigbasket.com/media/uploads/p/xxl/40219320_1-mother-dairy-standardised-milk.jpg" alt="Product 5">
+                    <p>High Quality Standardised Milk</p>
+                    <p><span>$15 per liter</span></p>
+                    <form method="post" action="cart.php">
+                        <input type="hidden" name="product_id" value="5">
+                        <label for="product5_quantity">Quantity:</label>
+                        <select id="product5_quantity" name="product_quantity">
+                            <option value="250ml">250ml</option>
+                            <option value="500ml">500ml</option>
+                            <option value="1 liter">1 liter</option>
+                        </select>
+                        <button type="submit" name="add_to_cart">Add to Cart</button>
+                    </form>
+                </li>
+                <li>
+                    <h3>Mother Dairy Curd</h3>
+                    <img src="https://5.imimg.com/data5/SELLER/Default/2021/5/EC/GO/TB/29317581/mother-dairy-dahi-400g.jpg" alt="Product 6">
+                    <p>High Quality Standardised Milk</p>
+                    <p><span>$15 per 400 grams</span></p>
+                    <form method="post" action="cart.php">
+                        <input type="hidden" name="product_id" value="6">
+                        <label for="product6_quantity">Quantity:</label>
+                        <select id="product6_quantity" name="product_quantity">
+                            <option value="50g">50g</option>
+                            <option value="100g">100g</option>
+                            <option value="150g">150g</option>
+                        </select>
+                        <button type="submit" name="add_to_cart">Add to Cart</button>
+                    </form>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <p>&copy; 2024 Moo Dairy Shop Corporation</p>
+    </footer>
+
+    <!-- JavaScript for Smooth Scrolling -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
